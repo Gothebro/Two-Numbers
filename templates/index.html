@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
 
-</body>
-</html>
+{% block body %}
+
+    <form action="/twonumbers" method="get">
+        <input autocomplete="off" autofocus name="num1" placeholder="Number-1" type="text">
+
+        <select name="operation">
+            <option disable selcted>None</option>
+            {% for operation in operations %}
+                <option value="{{ operation }}">{{  operation }}</option>
+            {% endfor %}
+        </select>
+
+        <input autocomplete="off" autofocus name="num2" placeholder="Number-2" type="text">
+
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}
