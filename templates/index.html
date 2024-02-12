@@ -2,19 +2,25 @@
 
 {% block body %}
 
-    <form action="/twonumbers" method="get">
-        <input autocomplete="off" autofocus name="num1" placeholder="Number-1" type="text">
+    <form action="/calculate" method="post">
+        <label>
+            <input autocomplete="off" autofocus name="num1" placeholder="Number 1" type="text">
+        </label>
 
-        <select name="operation">
-            <option disable selcted>None</option>
-            {% for operation in operations %}
-                <option value="{{ operation }}">{{  operation }}</option>
-            {% endfor %}
-        </select>
+        <label>
+            <select name="operation">
+                <option disabled selected>None</option>
+                {% for operation in operations %}
+                    <option value="{{ operation }}">{{  operation }}</option>
+                {% endfor %}
+            </select>
+        </label>
 
-        <input autocomplete="off" autofocus name="num2" placeholder="Number-2" type="text">
+        <label>
+            <input autocomplete="off" autofocus name="num2" placeholder="Number 2" type="text">
+        </label>
 
         <button type="submit">Submit</button>
     </form>
 
-{% endblock %}merge main
+{% endblock %}
