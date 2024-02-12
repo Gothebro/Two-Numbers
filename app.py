@@ -23,9 +23,10 @@ def calc():  # put application's code here
     elif operation == "*":
         output = int(num1) * int(num2)
     elif operation == "/":
-        if num2 == 0:
-            output = 0
-        output = int(num1) / int(num2)
+        if int(num2) == 0:
+            output = "Cannot divide by zero"
+        else:
+            output = int(num1) / int(num2)
     return render_template('output.html', operation=request.form.get("operation"),
                            num1=request.form.get("num1"), num2=request.form.get("num2"), output=output)
 
